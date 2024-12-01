@@ -1,0 +1,55 @@
+tasks=[]
+def add_task(): #this is first fuction to add tasks
+  task=input("Please enter a task you want to add: ")
+  tasks.append(task)
+  print(f"Task {task} has been successfull addeed to tasks")
+
+
+
+def list_tasks(): # this is the second fuction to list tasks
+  if not tasks:
+    print("DO worry! there is no task to do in my list")
+  else:
+    print("current tasks to do:")
+    for index, task in enumerate(tasks, start=1):
+      print(F" task # {index} : {tasks}")
+
+
+def delete_task(): # this is the third fuction to delete tasks
+  list_tasks()
+  try: # for making sure the user cant enter wrong number that can shop our coed
+               
+    task_to_delete= int(input("enter the number to delete:"))
+    
+    if task_to_delete >=0 and task_to_delete < len(tasks):
+       removed_task= tasks.pop(task_to_delete)
+       print(f"task {removed_task} has been deleted")
+    else:
+      print(f"task {task_to_delete} does not exist")
+  except:
+    print("invalid input. please enter a valid number")
+      
+if __name__ == "__main__":
+  print("welcome to the the to do app sir")
+  while True:
+    print("       ")
+    print("sir you have to select one of the following options:")
+    print("________________________________")
+    print("1. add a task")
+    print("2. delete a task")
+    print("3. list all tasks")
+    print("4. exit")
+    
+    choese=input("sir please enter your choese (1-4):")
+    if choese == "1":
+      add_task()
+    elif choese == "2":
+      delete_task()
+    elif choese == "3":
+      list_tasks()
+    elif choese == "4":
+      print("thank you for using the to the  app  dude")
+      break      
+    else:
+      print("take a look! invilde input ")
+print("amazing dude ! see you next time")
